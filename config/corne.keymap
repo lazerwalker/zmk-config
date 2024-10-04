@@ -22,7 +22,7 @@
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
-#define combo_length 30
+#define combo_length 20
 
 &lt { quick_tap_ms = <200>; };
 &mt { quick_tap_ms = <200>; };
