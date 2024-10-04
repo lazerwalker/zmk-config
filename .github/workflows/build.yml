@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: lazerwalker/zmk/.github/workflows/build-user-config.yml@main
+    uses: lazerwalker/zmk/.github/workflows/build-user-config.yml@plover-hid-hog-attempt
