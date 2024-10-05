@@ -4,7 +4,7 @@ manifest:
       url-base: https://github.com/lazerwalker
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: lazerwalker
       revision: plover-hid-hog-attempt
       import: app/west.yml
   self:
