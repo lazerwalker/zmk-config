@@ -14,10 +14,11 @@
 #define WASD 3
 #define STENO 4
 #define FN 5
-#define ARDUX_LAYER 6
-#define ARDUX_RIGHT_LAYER 7
+#define GAME 6
+#define ARDUX_LAYER 7
+#define ARDUX_RIGHT_LAYER 8
 
-#define ALL_LAYERS_NO_ARDUX <0 1 2 3 4 5>
+#define ALL_LAYERS_NO_ARDUX <0 1 2 3 4 5 6>
 #define QWERTY_CHAR_LAYERS <DEFAULT SYMBOLS FN>
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
@@ -150,6 +151,12 @@
       key-positions = <36 41>;
       bindings = <&tog STENO>;
     };
+    combo_game {
+      timeout-ms = <50>;
+      key-positions = <0 2 4>;
+      bindings = <&tog GAME>;
+      layers = <DEFAULT GAME>;
+    };
     // combo_nextwindow {
     //   timeout-ms = <combo_length>;
     //   key-positions = <4 17>;
@@ -275,10 +282,20 @@
             &trans     &trans       &trans      &trans  &lt SYMBOLS SPACE   &trans
       >;
     };
+
+    game_layer {
+      display-name = "Game";
+      bindings = <
+          &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC 
+   /*&ctrl_caps*/ &none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT 
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC 
+      &sl FN &kp BSPC &kp SPACE   &kp RET &kp TAB &kp RALT
+      >;
+    };
   };
 };
 
-#define ARDUX_LAYERS <6 7 8 9 10 11 12 13 14 15>
+#define ARDUX_LAYERS <7 8 9 10 11 12 13 14 15 16>
 
 // Macros from ardux.dtsi moved here to allow us to define rows here
 /*****************************************
@@ -345,7 +362,7 @@
 #include "ardux.dtsi"
 
 #undef ARDUX_LAYERS
-#define ARDUX_LAYERS <16 17 18 19 20 21 22 23 24 25>
+#define ARDUX_LAYERS <17 18 19 20 21 22 23 24 25 26>
 
 
 #undef ARDUX_LEFT
