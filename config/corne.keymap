@@ -16,9 +16,9 @@
 #define FN 5
 #define GAME 6
 #define ARDUX_LAYER 7
-#define ARDUX_RIGHT_LAYER 8
 
 #define ALL_LAYERS_NO_ARDUX <0 1 2 3 4 5 6>
+#define ARDUX_LAYERS <7 8 9 10 11 12 13 14 15 16>
 #define QWERTY_CHAR_LAYERS <DEFAULT SYMBOLS FN>
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
@@ -136,15 +136,10 @@
       bindings = <&kp ESC>;
       layers = QWERTY_CHAR_LAYERS;
     };
-    combo_ldux {
+    combo_ardux {
       timeout-ms = <50>;
       key-positions = <25 26 27 28>;
       bindings = <&tog ARDUX_LAYER>;
-    };
-    combo_rdux {
-      timeout-ms = <50>;
-      key-positions = <31 32 33 34>;
-      bindings = <&tog ARDUX_RIGHT_LAYER>;
     };
     combo_steno {
       timeout-ms = <50>;
@@ -295,29 +290,6 @@
   };
 };
 
-#define ARDUX_LAYERS <7 8 9 10 11 12 13 14 15 16>
-
-// Macros from ardux.dtsi moved here to allow us to define rows here
-/*****************************************
- * Macros for filling in "&none" in the right places in the keymap for re-use needs
- *****************************************/
-#define NONE0(X)
-#define NONE1(X) X
-#define NONE2(X) NONE1(X) X
-#define NONE3(X) NONE2(X) X
-#define NONE4(X) NONE3(X) X
-#define NONE5(X) NONE4(X) X
-#define NONE6(X) NONE5(X) X
-#define NONE7(X) NONE6(X) X
-#define NONE8(X) NONE7(X) X
-#define NONE9(X) NONE8(X) X
-#define NONE10(X) NONE9(X) X
-
-#define NONE(HUNDREDS,TENS,ONES) \
-  NONE##HUNDREDS(NONE10(NONE10(&none))) \
-  NONE##TENS(NONE10(&none)) \
-  NONE##ONES(&none)
-
 // Setup left ardux
 // Taken from github:arduxio/zmk-ardux/config/boards/shields/corne_left/corne_ardux_left.keymap
 
@@ -344,77 +316,12 @@
 #define KEY_F_TOP 5
 #define KEY_F_BOTTOM 17
 
-// Define Offsets
-// #define LEADING_NONES NONE(0,0,1)
-// #define MIDDLE_NONES NONE(0, 0, 8)
-// #define TRAILING_NONES NONE(0, 2, 5)
-
-#define BIG_LEADING_NONES NONE(0, 0, 1)
-#define BIG_BETWEEN_ROW_ONE_TWO_NONES NONE(0, 0, 7)
-#define BIG_BETWEEN_ROW_TWO_THREE_NONES NONE(0, 0, 7)
-#define BIG_BETWEEN_ROW_THREE_THUMBS NONE(0, 0, 6)
-#define BIG_TRAILING_NONES NONE(0, 0, 3)
+// I had defined the whitespace constants here,
+// but they have to be after NONE is defined,
+// so they've been moved into the DTSI
 
 // I deleted some definitions like THUMB_1, 
 // need to figure out how to handle thumbs and exiting
 
 // Finally include Ardux itself
-#include "ardux.dtsi"
-
-#undef ARDUX_LAYERS
-#define ARDUX_LAYERS <17 18 19 20 21 22 23 24 25 26>
-
-
-#undef ARDUX_LEFT
-#define ARDUX_RIGHT 1
-
-// #define ARDUX_BIG 1
-
-// ARTS Row
-#undef KEY_A
-#define KEY_A 7
-
-#undef KEY_R
-#define KEY_R 8
-
-#undef KEY_T
-#define KEY_T 9
-
-#undef KEY_S
-#define KEY_S 10
-
-// EYIO Row
-// Original repo numbers didn't assume a right half
-#undef KEY_E
-#define KEY_E 19
-
-#undef KEY_Y
-#define KEY_Y 20
-
-#undef KEY_I
-#define KEY_I 21
-
-#undef KEY_O
-#define KEY_O 22
-
-// Big ardux F1-12 layer keys for combo
-// If using these, update offsets
-
-#undef KEY_F_TOP
-#define KEY_F_TOP 5
-
-#undef KEY_F_BOTTOM
-#define KEY_F_BOTTOM 17
-
-// Define Offsets
-// #define LEADING_NONES NONE(0,0,1)
-// #define MIDDLE_NONES NONE(0, 0, 8)
-// #define TRAILING_NONES NONE(0, 2, 5)
-
-#define BIG_LEADING_NONES NONE(0, 0, 7)
-#define BIG_BETWEEN_ROW_ONE_TWO_NONES NONE(0, 0, 8)
-#define BIG_BETWEEN_ROW_TWO_THREE_NONES NONE(0, 0, 8)
-#define BIG_BETWEEN_ROW_THREE_THUMBS NONE(0, 0, 1)
-#define BIG_TRAILING_NONES NONE(0, 0, 3)
-
 #include "ardux.dtsi"
