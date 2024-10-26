@@ -9,17 +9,18 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEFAULT 0
-#define BT 1
-#define SYMBOLS 2
-#define WASD 3
-#define STENO 4
-#define FN 5
-#define GAME 6
-#define ARDUX_LAYER 7
+#define COLEMAK 1
+#define BT 2
+#define SYMBOLS 3
+#define WASD 4
+#define STENO 5
+#define FN 6
+#define GAME 7
+#define ARDUX_LAYER 8
 
-#define ALL_LAYERS_NO_ARDUX <0 1 2 3 4 5 6>
-#define ARDUX_LAYERS <7 8 9 10 11 12 13 14 15 16>
-#define QWERTY_CHAR_LAYERS <DEFAULT SYMBOLS FN>
+#define ALL_LAYERS_NO_ARDUX <0 1 2 3 4 5 6 7>
+#define ARDUX_LAYERS <8 9 10 11 12 13 14 15 16 17>
+#define QWERTY_CHAR_LAYERS <DEFAULT SYMBOLS FN COLEMAK>
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
@@ -148,10 +149,16 @@
     };
     combo_game {
       timeout-ms = <50>;
-      key-positions = <0 2 4>;
+      key-positions = <1 13 25>;
       bindings = <&tog GAME>;
       layers = <DEFAULT GAME>;
     };
+    combo_colemak {
+      timeout-ms = <50>;
+      key-positions = <0 12 24>;
+      bindings = <&tog COLEMAK>;
+      layers = <DEFAULT COLEMAK>;
+    }
     // combo_nextwindow {
     //   timeout-ms = <combo_length>;
     //   key-positions = <4 17>;
@@ -214,6 +221,26 @@
    &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SEMI) AS(SQT) 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
+      &sl FN &lt WASD BSPC &rpi LGUI SPACE   &rpi LCTRL RET &lt SYMBOLS TAB &kp RALT
+      >;
+    };
+    /* Open questions:
+      - Home row mods + autoshift?
+      - What to do with extra outer row?
+      - What else to take from miryoku?
+      - Mouse emulation?
+    */
+    colemak_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+      display-name = "Colemak-DH";
+      bindings = <
+   &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SQT)    /*&kp BSPC*/ &none 
+   /*&ctrl_caps*/ &none AS(A) AS(R) AS(S) AS(T) AS(G)   AS(M) AS(N)  AS(E)     AS(I)   AS(O) &none 
+   &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
       &sl FN &lt WASD BSPC &rpi LGUI SPACE   &rpi LCTRL RET &lt SYMBOLS TAB &kp RALT
       >;
     };
