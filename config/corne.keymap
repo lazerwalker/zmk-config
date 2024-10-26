@@ -298,38 +298,28 @@
   };
 };
 
-// Setup left ardux
-// Taken from github:arduxio/zmk-ardux/config/boards/shields/corne_left/corne_ardux_left.keymap
+// Setup custom double Ardux
 
-// Enable ARDUX Left
-#define ARDUX_LEFT 1
+#define KEY_L_A 4
+#define KEY_L_R 3
+#define KEY_L_T 2
+#define KEY_L_S 1
+#define KEY_L_E 16
+#define KEY_L_Y 15
+#define KEY_L_I 14
+#define KEY_L_O 13
 
-#define ARDUX_BIG 1
+#define KEY_R_A 7
+#define KEY_R_R 8
+#define KEY_R_T 9
+#define KEY_R_S 10
+#define KEY_R_E 19
+#define KEY_R_Y 20
+#define KEY_R_I 21
+#define KEY_R_O 22
 
-// ARTS Row
-#define KEY_A 4
-#define KEY_R 3
-#define KEY_T 2
-#define KEY_S 1
-
-// EYIO Row
-// Original repo numbers didn't assume a right half
-#define KEY_E 16
-#define KEY_Y 15
-#define KEY_I 14
-#define KEY_O 13
-
-// Big ardux F1-12 layer keys for combo
-// If using these, update offsets
-#define KEY_F_TOP 5
-#define KEY_F_BOTTOM 17
-
-// I had defined the whitespace constants here,
-// but they have to be after NONE is defined,
-// so they've been moved into the DTSI
-
-// I deleted some definitions like THUMB_1, 
-// need to figure out how to handle thumbs and exiting
+// Bottom row, thumb cluster (12 + 6)
+#define TRAILING_NONES NONE(0, 1, 8)
 
 // Finally include Ardux itself
 #include "ardux.dtsi"
