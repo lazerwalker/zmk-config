@@ -158,7 +158,7 @@
       key-positions = <0 12 24>;
       bindings = <&tog COLEMAK>;
       layers = <DEFAULT COLEMAK>;
-    }
+    };
     // combo_nextwindow {
     //   timeout-ms = <combo_length>;
     //   key-positions = <4 17>;
