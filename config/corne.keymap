@@ -50,25 +50,6 @@
         retro-tap-param1 = <LS(letter)>; \
     };
 
-HRM(A)
-HRM(R)
-HRM(S)
-HRM(T)
-HRM(N)
-HRM(E)
-HRM(I)
-HRM(O)
-
-#define HRA &hrasA LCTRL A
-#define HRR &hrasR LALT R
-#define HRS &hrasS LGUI S
-#define HRT &hrasT LCTL T
-#define HRN &hrasN RGUI N
-#define HRE &hrasE RSHIFT E
-#define HRI &hrasI RALT I
-#define HRO &hrasO RCTRL O
-
-
 / {
   macros {
     ZMK_MACRO(spotlight_macro,
@@ -222,6 +203,14 @@ HRM(O)
   };
 
   behaviors {
+    HRM(A)
+    HRM(R)
+    HRM(S)
+    HRM(T)
+    HRM(N)
+    HRM(E)
+    HRM(I)
+    HRM(O)
     rpi: require_prior_idle {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -246,6 +235,15 @@ HRM(O)
             bindings = <&kp>, <&kp>;
         };
   };
+
+#define HRA &hrasA LCTRL A
+#define HRR &hrasR LALT R
+#define HRS &hrasS LGUI S
+#define HRT &hrasT LCTL T
+#define HRN &hrasN RGUI N
+#define HRE &hrasE RSHIFT E
+#define HRI &hrasI RALT I
+#define HRO &hrasO RCTRL O
 
   keymap {
     compatible = "zmk,keymap";
