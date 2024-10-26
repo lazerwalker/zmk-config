@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: lazerwalker
-      revision: plover-hid-hog-attempt
+      revision: multiple-features
       import: app/west.yml
   self:
     path: config

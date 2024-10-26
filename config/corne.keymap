@@ -29,6 +29,46 @@
 &lt { quick_tap_ms = <200>; };
 &mt { quick_tap_ms = <200>; };
 
+// TODO: This is loosely adapted from https://github.com/nickconway/zmk-config/blob/main/config/include/autoshift.dtsi
+// The person who wrote this likes using macros. It's not yet clear to me if that's essential for how retro-tap is implemented.
+// I ripped out using different times for different keys, but it's an interesting idea (was parameterized in the #define macro)
+#define TAPPING_TERM 200
+#define TAPPING_TERM_RING 250
+#define TAPPING_TERM_PINKY 300
+#define QUICK_TAP_TERM 300
+
+#define HRM(letter) \
+    hras##letter: hras##letter { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <TAPPING_TERM>; \
+        quick-tap-ms = <QUICK_TAP_TERM>; \
+        bindings = <&kp>, <&kp>; \
+        retro-tap; \
+        retro-tap-behavior = "KEY_PRESS"; \
+        retro-tap-param1 = <LS(letter)>; \
+    };
+
+HRM(A)
+HRM(R)
+HRM(S)
+HRM(T)
+HRM(N)
+HRM(E)
+HRM(I)
+HRM(O)
+
+#define HRA &hrasA LCTRL A
+#define HRR &hrasR LALT R
+#define HRS &hrasS LGUI S
+#define HRT &hrasT LCTL T
+#define HRN &hrasN RGUI N
+#define HRE &hrasE RSHIFT E
+#define HRI &hrasI RALT I
+#define HRO &hrasO RCTRL O
+
+
 / {
   macros {
     ZMK_MACRO(spotlight_macro,
@@ -231,15 +271,10 @@
       - Mouse emulation?
     */
     colemak_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
       display-name = "Colemak-DH";
       bindings = <
    &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SQT)    /*&kp BSPC*/ &none 
-   /*&ctrl_caps*/ &none AS(A) AS(R) AS(S) AS(T) AS(G)   AS(M) AS(N)  AS(E)     AS(I)   AS(O) &none 
+   /*&ctrl_caps*/ &none HRA HRR HRS HRT AS(G)   AS(M) HRN HRE HRI HRO &none 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
       &lt FN ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL     
       >;
