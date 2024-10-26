@@ -221,7 +221,7 @@
    &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SEMI) AS(SQT) 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
-      &sl FN &lt WASD BSPC &rpi LGUI SPACE   &rpi LCTRL RET &lt SYMBOLS TAB &kp RALT
+      &lt FN ESC &lt WASD TAB &rpi LGUI SPACE   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL
       >;
     };
     /* Open questions:
@@ -241,7 +241,7 @@
    &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SQT)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none AS(A) AS(R) AS(S) AS(T) AS(G)   AS(M) AS(N)  AS(E)     AS(I)   AS(O) &none 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
-      &sl FN &lt WASD BSPC &rpi LGUI SPACE   &rpi LCTRL RET &lt SYMBOLS TAB &kp RALT
+      &lt FN ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL     
       >;
     };
     bt_layer {
