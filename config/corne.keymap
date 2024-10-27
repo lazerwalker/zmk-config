@@ -45,8 +45,8 @@
         tapping-term-ms = <TAPPING_TERM>; \
         quick-tap-ms = <QUICK_TAP_TERM>; \
         bindings = <&kp>, <&kp>; \
-        retro-tap; \
-        retro-tap-behavior = "KEY_PRESS"; \
+        retro-tap = true; \
+        retro-tap-behavior = "key_press"; \
         retro-tap-param1 = <LS(letter)>; \
     };
 
@@ -211,6 +211,17 @@
     HRM(E)
     HRM(I)
     HRM(O)
+    hrma_test: hrma_test { // the home row modifier for adaptive A
+      compatible = "zmk,behavior-hold-tap";
+      label = "MODIFIER_HOLD_TAP_A";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      hold-trigger-key-positions = <>;
+      hold-trigger-on-release;
+      bindings = <&kp LCTRL>, <AS(A)>;
+    };
     rpi: require_prior_idle {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
