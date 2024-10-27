@@ -45,7 +45,7 @@
         tapping-term-ms = <TAPPING_TERM>; \
         quick-tap-ms = <QUICK_TAP_TERM>; \
         bindings = <&kp>, <&kp>; \
-        retro-tap = true; \
+        retro-tap; \
         retro-tap-behavior = "key_press"; \
         retro-tap-param1 = <LS(letter)>; \
     };
