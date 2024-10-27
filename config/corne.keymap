@@ -211,17 +211,6 @@
     HRM(E)
     HRM(I)
     HRM(O)
-    hrma_test: hrma_test { // the home row modifier for adaptive A
-      compatible = "zmk,behavior-hold-tap";
-      label = "MODIFIER_HOLD_TAP_A";
-      #binding-cells = <0>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      hold-trigger-key-positions = <>;
-      hold-trigger-on-release;
-      bindings = <&kp LCTRL>, <AS(A)>;
-    };
     rpi: require_prior_idle {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
