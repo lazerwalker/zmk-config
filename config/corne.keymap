@@ -214,7 +214,7 @@
     hrma_test: hrma_test { // the home row modifier for adaptive A
       compatible = "zmk,behavior-hold-tap";
       label = "MODIFIER_HOLD_TAP_A";
-      #binding-cells = <2>;
+      #binding-cells = <0>;
       flavor = "balanced";
       tapping-term-ms = <280>;
       quick-tap-ms = <175>;
@@ -240,8 +240,8 @@
      as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping_term_ms = <170>;
-            quick_tap_ms = <0>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
