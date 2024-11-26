@@ -56,7 +56,7 @@
 //#define ARDUX_BIG 1
 // If you use COLEMAK as your standard keyboard layout, you may want this
 //     This define will make base ardux keys and N more in line with COLEMAK
-//#define ARDUX_COLEMAK 1
+// #define ARDUX_COLEMAK 1
 
 /*****************************************
  * Define key positions used for combos
@@ -170,18 +170,21 @@
  * Define base layer chars for 'standard ARDUX' or 'COLEMAK' inspired (you can add more by following the pattern below)
  * Turn on the ARDUX_COLEMAK definition above if you want this change
  *****************************************/
-// ELW note: This colemak isn't quite correct.
-// See https://www.keyboard-layout-editor.com/#/gists/3949ff5171bbd401532929f5c0ae5fcd for my goals
-#define ARDUX_BASE_A A
-#define ARDUX_BASE_R R
-#define ARDUX_BASE_T T
-#define ARDUX_BASE_S S
-#define ARDUX_BASE_E E
-#define ARDUX_BASE_Y Y
-#define ARDUX_BASE_I I
-#define ARDUX_BASE_O O
-#define ARDUX_COMBO_N N
-#if ARDUX_COLEMAK
+// Default ARTSEY
+
+// #define ARDUX_BASE_A A
+// #define ARDUX_BASE_R R
+// #define ARDUX_BASE_T T
+// #define ARDUX_BASE_S S
+// #define ARDUX_BASE_E E
+// #define ARDUX_BASE_Y Y
+// #define ARDUX_BASE_I I
+// #define ARDUX_BASE_O O
+// #define ARDUX_COMBO_N N
+
+// My Colemak ARTSEY
+// Currently stock, but consider improvements from https://www.keyboard-layout-editor.com/#/gists/3949ff5171bbd401532929f5c0ae5fcd
+// Also consider: swap top + bottom row based on side of hand, so your home row always matches your 'normal' layout
 #define ARDUX_BASE_A T
 #define ARDUX_BASE_R S
 #define ARDUX_BASE_T R
@@ -191,7 +194,6 @@
 #define ARDUX_BASE_I I
 #define ARDUX_BASE_O O
 #define ARDUX_COMBO_N Y
-#endif
 
 /*****************************************
  * Layer IDs used by the ARDUX keymap
