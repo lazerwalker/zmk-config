@@ -236,14 +236,23 @@
         };
   };
 
-#define HRA &hrasA LCTRL A
-#define HRR &hrasR LALT R
-#define HRS &hrasS LGUI S
-#define HRT &hrasT LCTL T
-#define HRN &hrasN RGUI N
-#define HRE &hrasE RSHIFT E
-#define HRI &hrasI RALT I
-#define HRO &hrasO RCTRL O
+#define HRcA &hrasA LCTRL A
+#define HRcR &hrasR LALT R
+#define HRcS &hrasS LGUI S
+#define HRcT &hrasT LCTL T
+#define HRcN &hrasN RGUI N
+#define HRcE &hrasE RSHIFT E
+#define HRcI &hrasI RALT I
+#define HRcO &hrasO RCTRL O
+
+#define HRqA &hrasA LCTRL A
+#define HRqS &hrasR LALT S
+#define HRqD &hrasS LGUI D
+#define HRqF &hrasT LCTL F
+#define HRqJ &hrasN RGUI J
+#define HRqK &hrasE RSHIFT K
+#define HRqL &hrasI RALT L
+#define HRqSEMI &hrasO RCTRL SEMI
 
   keymap {
     compatible = "zmk,keymap";
@@ -257,7 +266,7 @@
       display-name = "Base";
       bindings = <
    &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    AS(BSLH)
-   /*&ctrl_caps*/ &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SEMI) AS(SQT)
+   /*&ctrl_caps*/ &none HRqA HRqS HRqD HRqF AS(G)   AS(H) HRqJ  HRqK HRqL HRqSEMI AS(SQT)
    &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &kp ESC
       &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
       >;
@@ -272,7 +281,7 @@ colemak_layer {
       display-name = "Colemak-DH";
       bindings = <
    &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI)    AS(BSLH)
-   /*&ctrl_caps*/ &none HRA HRR HRS HRT AS(G)   AS(M) HRN HRE HRI HRO AS(SQT)
+   /*&ctrl_caps*/ &none HRcA HRcR HRcS HRcT AS(G)   AS(M) HRcN HRcE HRcI HRcO AS(SQT)
    &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none
       &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
       >;
