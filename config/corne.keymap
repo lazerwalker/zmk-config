@@ -250,13 +250,13 @@
 
     default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | none |
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  \   |
 // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 // | Escape / Num row /  | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
       display-name = "Base";
       bindings = <
-   &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    /*&kp BSPC*/ &none
+   &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    AS(BSLH)
    /*&ctrl_caps*/ &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SEMI) AS(SQT)
    &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &kp ESC
       &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
@@ -265,13 +265,13 @@
 
 colemak_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | none |
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  |  \   |
 // | none |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
 // | Num and FN | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
       display-name = "Colemak-DH";
       bindings = <
-   &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI)    /*&kp BSPC*/ &none
+   &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI)    AS(BSLH)
    /*&ctrl_caps*/ &none HRA HRR HRS HRT AS(G)   AS(M) HRN HRE HRI HRO AS(SQT)
    &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none
       &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
@@ -348,6 +348,16 @@ colemak_layer {
 
     game_layer {
       display-name = "Game";
+      bindings = <
+          &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   /*&ctrl_caps*/ &none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
+      &sl NUMROW &kp BSPC &kp SPACE   &kp RET &kp TAB &kp RALT
+      >;
+    };
+
+    ardux_layer {
+      display-name = "Ardux";
       bindings = <
           &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    /*&ctrl_caps*/ &none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
