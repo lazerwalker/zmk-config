@@ -14,13 +14,13 @@
 #define SYMBOLS 3
 #define WASD 4
 #define STENO 5
-#define FN 6
+#define NUMROW 6
 #define GAME 7
 #define ARDUX_LAYER 8
 
 #define ALL_LAYERS_NO_ARDUX <0 1 2 3 4 5 6 7>
 #define ARDUX_LAYERS <8 9 10 11 12 13 14 15 16 17>
-#define QWERTY_CHAR_LAYERS <DEFAULT SYMBOLS FN COLEMAK>
+#define QWERTY_CHAR_LAYERS <DEFAULT SYMBOLS NUMROW COLEMAK>
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
@@ -250,31 +250,31 @@
 
     default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | none |
+// | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// | Escape / Num row /  | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
       display-name = "Base";
       bindings = <
    &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SEMI) AS(SQT) 
-   &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
-      &lt FN ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL
+   &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &kp ESC 
+      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL
       >;
     };
-    /* Open questions:
-      - Home row mods + autoshift?
-      - What to do with extra outer row?
-      - What else to take from miryoku?
-      - Mouse emulation?
-    */
-    colemak_layer {
+
+colemak_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | none |
+// | none |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
+// | Num and FN | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
       display-name = "Colemak-DH";
       bindings = <
    &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none HRA HRR HRS HRT AS(G)   AS(M) HRN HRE HRI HRO AS(SQT) 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
-      &lt FN ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL     
+      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL     
       >;
     };
     bt_layer {
@@ -352,7 +352,7 @@
           &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC 
    /*&ctrl_caps*/ &none &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT 
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC 
-      &sl FN &kp BSPC &kp SPACE   &kp RET &kp TAB &kp RALT
+      &sl NUMROW &kp BSPC &kp SPACE   &kp RET &kp TAB &kp RALT
       >;
     };
   };
