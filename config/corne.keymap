@@ -90,7 +90,7 @@
       key-positions = <18 19 20>;
       bindings = <&emdash_macro>;
       layers = QWERTY_CHAR_LAYERS;
-    };         
+    };
     combo_hyphen {
       timeout-ms = <combo_length>;
       key-positions = <18 19>;
@@ -150,8 +150,8 @@
       key-positions = <1 2 3 4>;
       bindings = <&sl BT>;
       layers = QWERTY_CHAR_LAYERS;
-    };  
- 
+    };
+
     combo_esc {
       timeout-ms = <combo_length>;
       key-positions = <0 1>;
@@ -189,7 +189,7 @@
     //   timeout-ms = <combo_length>;
     //   key-positions = <3 16>;
     //   bindings = <&kp LGUI &kp LSHIFT &kp TAB>;
-    // };   
+    // };
     // combo_previoustab {
     //   timeout-ms = <combo_length>;
     //   key-positions = <7 18>;
@@ -259,7 +259,7 @@
    &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SEMI) AS(SQT) 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &kp ESC 
-      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL
+      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
       >;
     };
 
@@ -274,7 +274,7 @@ colemak_layer {
    &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI)    /*&kp BSPC*/ &none 
    /*&ctrl_caps*/ &none HRA HRR HRS HRT AS(G)   AS(M) HRN HRE HRI HRO AS(SQT) 
    &kp LSHFT AS(Z) AS(X) AS(C) AS(D) AS(V)   AS(K) AS(H)  AS(COMMA) AS(DOT) AS(FSLH) /*&kp ESC*/ &none 
-      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &lt RALT DEL     
+      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL     
       >;
     };
     bt_layer {
