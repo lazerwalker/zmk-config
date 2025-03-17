@@ -322,9 +322,9 @@ colemak_layer {
 //                    |     |     |     |   |     |     |    |
       display-name = "WASD and Numpad";
       bindings = <
-   &trans &trans &trans &kp UP &trans &trans   &kp COMMA &kp KP_N7  &kp KP_N8 &kp KP_N9 &kp KP_DIVIDE &trans
-&trans &trans &kp LEFT  &kp DOWN &kp RIGHT   &trans     &kp MINUS &kp KP_N4 &kp KP_N5  &kp KP_N6 &kp KP_MULTIPLY &trans
-   &trans &trans   &trans &trans   &trans   &trans      &kp DOT &kp KP_N1  &kp KP_N2  &kp KP_N3 &kp PLUS &trans
+   &trans &trans &trans &kp UP &trans &trans   &kp COMMA &kp KP_N7  &kp KP_N8 &kp KP_N9 &kp KP_MULTIPLY &trans
+&trans &trans &kp LEFT  &kp DOWN &kp RIGHT   &trans     &kp MINUS &kp KP_N4 &kp KP_N5  &kp KP_N6 &kp PLUS &trans
+   &trans &trans   &trans &trans   &trans   &trans      &kp DOT &kp KP_N1  &kp KP_N2  &kp KP_N3 &kp KP_DIVIDE &trans
                &trans &trans   &trans   &trans   &trans    &kp KP_N0
       >;
     };
