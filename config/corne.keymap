@@ -8,6 +8,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#include "include/42.h"
+
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2   
+
 #define DEFAULT 0
 #define COLEMAK 1
 #define BT 2
@@ -32,23 +38,59 @@
 // TODO: This is loosely adapted from https://github.com/nickconway/zmk-config/blob/main/config/include/autoshift.dtsi
 // The person who wrote this likes using macros. It's not yet clear to me if that's essential for how retro-tap is implemented.
 // I ripped out using different times for different keys, but it's an interesting idea (was parameterized in the #define macro)
-#define TAPPING_TERM 200
+#define TAPPING_TERM 280 //200
 #define TAPPING_TERM_RING 250
 #define TAPPING_TERM_PINKY 300
-#define QUICK_TAP_TERM 300
+#define QUICK_TAP_TERM 175 //300
+#define REQUIRE_PRIOR_IDLE 150
 
-#define HRM(letter) \
+/* How my janky home-row mods + autoshift work:
+* Here we define two macros, for left and right HRMs (necessary because of setting hold-trigger-key-positions per-side). 
+* These macros get instantiated into per-key behaviors in the behaviors section (necessary since the way autoshift is 
+* implemented with retro-tap requires hardcoding the keycode, in a way that currently does not work with parameterization).
+* We then use macros to define the specific keycodes, which are then used in the keymap.
+* 
+* Specifics on the HRM macros:
+* - 'retro-tap' means that if you pass the hold-tap time but have not pressed a second key, the 'un-held' key is sent
+* - voidyourwarranty2's ZMK patch (taken from nickconway) lets you specify a different custom action (with params) for when retro-tap activates
+* - flavor = "balanced" means if you press multiple keys immediately, the combo will fire instead of waiting for tapping-term-ms
+* - require-prior-idle-ms should minimize triggering if you're trying to roll through a HRM key
+* - hold-trigger-key-positions should cause HRM to only activate if you press a key on the other half
+* - hold-trigger-on-release means that hold behavior is triggered when the other key is *released*, not pressed, which should minimize false positives when quickly typing a key on one half then the other
+* - quick-tap-ms lets you double-tap to jump to the tap behavior (maybe not necessary here?)
+* - tapping-term-ms is intentionally long since we don't expect to hit it
+*/
+#define HRML(letter) \
     hras##letter: hras##letter { \
         compatible = "zmk,behavior-hold-tap"; \
-        #binding-cells = <2>; \
         flavor = "balanced"; \
         tapping-term-ms = <TAPPING_TERM>; \
         quick-tap-ms = <QUICK_TAP_TERM>; \
+        #binding-cells = <2>; \
         bindings = <&kp>, <&kp>; \
         retro-tap; \
         retro-tap-behavior = "key_press"; \
         retro-tap-param1 = <LS(letter)>; \
+        require-prior-idle-ms = <REQUIRE_PRIOR_IDLE>; \
+        hold-trigger-key-positions = <KEYS_R THUMBS>; \
+        hold-trigger-on-release; \
     };
+
+#define HRMR(letter) \
+  hras##letter: hras##letter { \
+      compatible = "zmk,behavior-hold-tap"; \
+      flavor = "balanced"; \
+      tapping-term-ms = <TAPPING_TERM>; \
+      quick-tap-ms = <QUICK_TAP_TERM>; \
+      #binding-cells = <2>; \
+      bindings = <&kp>, <&kp>; \
+      retro-tap; \
+      retro-tap-behavior = "key_press"; \
+      retro-tap-param1 = <LS(letter)>; \
+      require-prior-idle-ms = <REQUIRE_PRIOR_IDLE>; \
+      hold-trigger-key-positions = <KEYS_L THUMBS>; \
+      hold-trigger-on-release; \
+  };
 
 / {
   macros {
@@ -203,14 +245,14 @@
   };
 
   behaviors {
-    HRM(A)
-    HRM(R)
-    HRM(S)
-    HRM(T)
-    HRM(N)
-    HRM(E)
-    HRM(I)
-    HRM(O)
+    HRML(A)
+    HRML(R)
+    HRML(S)
+    HRML(T)
+    HRMR(N)
+    HRMR(E)
+    HRMR(I)
+    HRMR(O)
     rpi: require_prior_idle {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -401,4 +443,4 @@ colemak_layer {
 #define TRAILING_NONES NONE(0, 1, 8)
 
 // Finally include Ardux itself
-#include "ardux.dtsi"
+#include "include/ardux.dtsi"

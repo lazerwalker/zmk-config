@@ -1,3 +1,10 @@
+/* This is veeeeeeery loosely based off of the original Ardux ZMK dtsi,
+* but has been heavily modified to work with my setup. A few big changes:
+* 1. By default, Ardux wants to drive your layout. Here, it's a secondary layout I can include in my own keymap
+* 2. My "Ardux layout" is actually two Ardux layouts side-by-side — left hand and right hand exist in the same layer.
+* 3. I have modified the core Ardux layout slightly to be more like Colemak (ARST vs ARTS, NEIO vs EYIO)
+*/
+
 /*
  * Copyright (c) 2021 Mike "KemoNine" Crosson
  *
