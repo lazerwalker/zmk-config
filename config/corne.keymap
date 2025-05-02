@@ -305,7 +305,7 @@ default_layer {
 // | none |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
 // | Num and FN | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
-      display-name = "Colemak-DH";
+      display-name = "Base";
       bindings = <
    &kp TAB   AS(Q) AS(W) AS(F) AS(P) AS(B)   AS(J) AS(L)  AS(U)     AS(Y)   AS(SEMI)    AS(BSLH)
    /*&ctrl_caps*/ &none HRcA HRcR HRcS HRcT AS(G)   AS(M) HRcN HRcE HRcI HRcO AS(SQT)
