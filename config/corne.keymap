@@ -321,7 +321,7 @@ no_autoshift_layer {
 // | none |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
 // | Num and FN | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
-      display-name = "Base";
+      display-name = "NoAutoshift";
       bindings = <
    &kp TAB   &kp Q   &kp W   &kp F   &kp P   &kp B   &kp J   &kp L   &kp U   &kp Y   &kp SEMI   &kp BSLH
    /*&ctrl_caps*/ &none &rpi LSHIFT A &rpi LALT R &rpi LCTRL S &rpi LGUI T &kp G &kp M &rpi LGUI N &rpi LCTRL E &rpi LALT I &rpi LSHIFT O &kp SQT
