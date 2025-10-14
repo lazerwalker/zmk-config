@@ -314,20 +314,36 @@ default_layer {
       >;
     };
 
-    qwerty_layer {
-      // -----------------------------------------------------------------------------------------
-      // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  \   |
-      // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-      // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-      // | Escape / Num row /  | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
-            display-name = "QWERTY";
-            bindings = <
-         &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    AS(BSLH)
-         /*&ctrl_caps*/ &none HRqA HRqS HRqD HRqF AS(G)   AS(H) HRqJ  HRqK HRqL HRqSEMI AS(SQT)
-         &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &kp ESC
-            &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
-            >;
-          };
+
+no_autoshift_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  |  \   |
+// | none |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
+// | Num and FN | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
+      display-name = "Base";
+      bindings = <
+   &kp TAB   &kp Q   &kp W   &kp F   &kp P   &kp B   &kp J   &kp L   &kp U   &kp Y   &kp SEMI   &kp BSLH
+   /*&ctrl_caps*/ &none &rpi LSHIFT A &rpi LALT R &rpi LCTRL S &rpi LGUI T &kp G &kp M &rpi LGUI N &rpi LCTRL E &rpi LALT I &rpi LSHIFT O &kp SQT
+   &kp LSHFT &kp Z   &kp X   &kp C   &kp D   &kp V   &kp K   &kp H   &kp COMMA   &kp DOT   &kp FSLH   &kp ESC
+      &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
+      >;
+    };
+
+    // qwerty_layer {
+    //   // -----------------------------------------------------------------------------------------
+    //   // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  \   |
+    //   // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+    //   // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+    //   // | Escape / Num row /  | Space / WASD | TAB / LGUI |   | Return / LCTRL  | Backspace / Symbols  | Delete / RALT |
+    //         display-name = "QWERTY";
+    //         bindings = <
+    //      &kp TAB   AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    AS(BSLH)
+    //      /*&ctrl_caps*/ &none HRqA HRqS HRqD HRqF AS(G)   AS(H) HRqJ  HRqK HRqL HRqSEMI AS(SQT)
+    //      &kp LSHFT AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &kp ESC
+    //         &lt NUMROW ESC &lt WASD SPACE &rpi LGUI TAB   &rpi LCTRL RET &lt SYMBOLS BSPC &rpi RALT DEL
+    //         >;
+    //       };
 
     bt_layer {
 // -----------------------------------------------------------------------------------------
