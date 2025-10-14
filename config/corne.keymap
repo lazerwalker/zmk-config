@@ -278,23 +278,23 @@
         };
   };
 
-#define HRcA &hrasA LCTRL A
+#define HRcA &hrasA LSHIFT A
 #define HRcR &hrasR LALT R
-#define HRcS &hrasS LGUI S
-#define HRcT &hrasT LCTL T
+#define HRcS &hrasS LCTRL S
+#define HRcT &hrasT LGUI T
 #define HRcN &hrasN RGUI N
-#define HRcE &hrasE RSHIFT E
+#define HRcE &hrasE RCTRL E
 #define HRcI &hrasI RALT I
-#define HRcO &hrasO RCTRL O
+#define HRcO &hrasO RSHIFT O
 
-#define HRqA &hrasA LCTRL A
-#define HRqS &hrasR LALT S
-#define HRqD &hrasS LGUI D
-#define HRqF &hrasT LCTL F
+#define HRqA &hrasA LGUI A
+#define HRqS &hrasR LCTRL S
+#define HRqD &hrasS LALT D
+#define HRqF &hrasT LSHIFT F
 #define HRqJ &hrasN RGUI J
-#define HRqK &hrasE RSHIFT K
+#define HRqK &hrasE RCTRL K
 #define HRqL &hrasI RALT L
-#define HRqSEMI &hrasO RCTRL SEMI
+#define HRqSEMI &hrasO RSHIFT SEMI
 
   keymap {
     compatible = "zmk,keymap";
